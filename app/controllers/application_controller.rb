@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     armies = Army.all
-    armies.to_json
+    armies.to_json(include: :army_models)
   end
 
 end

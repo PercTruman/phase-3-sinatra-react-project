@@ -7,18 +7,18 @@ class ArmyController < ApplicationController
     
 
     get '/army/:id' do
-       army = Army.find(params[:id])
-       army.to_json
+        army = Army.find(params[:id])
+        army.to_json(include: :army_models)
     end
 
 
-    post '/army/:id' do
-        army = Army.create(
-            name: params[:name],
-            alignment: params[:alignment],
-            description: params[:description]
-        )
-        army.to_json
-    end
+    # post '/army/:id' do
+    #     army = Army.create(
+    #         name: params[:name],
+    #         alignment: params[:alignment],
+    #         description: params[:description]
+    #     )
+    #     army.to_json
+    # end
 
 end

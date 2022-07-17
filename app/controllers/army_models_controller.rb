@@ -1,8 +1,9 @@
 class ArmyModelsController < ApplicationController
-    get '/army_models' do
-        army_models = ArmyModel.all
-        army_models.to_json
-    end
+    # get '/army/:id' do
+    #     army = Army.find(params[:id])
+    #     army.to_json(include: :army_models)
+    # end
+
 
     post '/army_models' do
         army_models = ArmyModel.new(params[:army_models])
