@@ -1,18 +1,14 @@
 class ArmyModelsController < ApplicationController
-    # get '/army/:id' do
-    #     army = Army.find(params[:id])
-    #     army.to_json(include: :army_models)
+  
+
+
+
+
+    # if army_models.save
+    #     army_models.to_json
+    # else
+    #     { errors: army_models.errors.full_messages }.to_json
     # end
-
-
-    post '/army_models' do
-        army_models = ArmyModel.new(params[:army_models])
-        if army_models.save
-            army_models.to_json
-        else
-            { errors: army_models.errors.full_messages }.to_json
-        end
-    end
 
     delete '/army_models/:id' do
         model = ArmyModel.find(params[:id])
