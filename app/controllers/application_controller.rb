@@ -7,6 +7,11 @@ class ApplicationController < Sinatra::Base
     armies.to_json(include: :army_models)
   end
 
+  get '/all_models_list' do
+    models = ArmyModel.all
+    models.to_json
+end
+
   post '/add_new_army'  do
     army = Army.create(
       name:params[:name],
@@ -14,6 +19,17 @@ class ApplicationController < Sinatra::Base
       description:params[:description]
     )
     army.to_json
+  end
+
+  patch '/:armyId/:modelId' do
+    model = ArmyModel.find(params[:modelId])
+    model.update(
+      name: params[:name],
+      number_in_collection: params[:number_in_collection],
+      cost_per_box: params[:cost_per_box],
+      unit_points_cost: params[:unit_points_cost]
+  )
+  model.to_json
   end
 
   delete '/army/:id' do
