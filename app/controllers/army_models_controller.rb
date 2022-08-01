@@ -17,10 +17,9 @@ class ArmyModelsController < ApplicationController
       models.to_json  
     end
 
-    patch '/armies/:id' do
+    patch '/army_models/:id' do
         model = ArmyModel.find(params[:id])
         model.update(
-            
             number_in_collection: params[:number_in_collection],
             unit_points_cost: params[:unit_points_cost]
          )
